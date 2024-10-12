@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll t,n,i,s,x,y,n1,n2,n3,z,p,q;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        x=0;
+        i=1;
+        s=0;
+        q=2;
+        for(; x<=n;)
+        {
+            y=pow(2,i);
+            if(y>n)break;
+            n1=(y-x)/2;
+            z=(y-x)-1-n1;
+            if(z%2==0)
+            {
+                n2=z/2;
+                n3=z/2;
+            }
+            else
+            {
+                n2=(z/2)+1;
+                n3=(z/2);
+            }
+            s=s+q+n1+2*n2+3*n3;
+            x=y;
+            i++;
+            q++;
+        }
+        z=n-x;
+        if(z%2==0)
+        {
+            n1=(z/2);
+            z=z/2;
+            if(z%2==0)
+            {
+                n2=z/2;
+                n3=z/2;
+            }
+            else
+            {
+                n2=(z/2)+1;
+                n3=(z/2);
+            }
+        }
+        else
+        {
+            n1=(z/2)+1;
+            z=z/2;
+            if(z%2==0)
+            {
+                n2=z/2;
+                n3=z/2;
+            }
+            else
+            {
+                n2=(z/2)+1;
+                n3=(z/2);
+            }
+        }
+        s=s+n1+2*n2+3*n3;
+        cout<<s<<endl;
+    }
+}

@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,i,j,p;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        if(n==1)
+        {
+            cout<<-1<<endl;
+            continue;
+        }
+        if(n==2)
+        {
+            cout<<23<<endl;
+            continue;
+        }
+        p=n-2;
+        if((p*2+5)%3)
+        {
+            cout<<2;
+            for(i=1;i<=p;i++)
+            {
+                cout<<2;
+            }
+            cout<<3<<endl;
+        }
+        else
+        {
+            cout<<3;
+            for(i=1;i<=p;i++)
+            {
+                cout<<2;
+            }
+            cout<<3<<endl;
+        }
+    }
+}

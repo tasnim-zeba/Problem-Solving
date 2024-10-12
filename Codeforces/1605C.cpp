@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    int t,n,i,j;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        string s;
+        cin>>s;
+        j=0;
+        for(i=0;i<n-1;i++)
+        {
+            if(s[i]=='a')
+            {
+                if(s[i]==s[i+1])
+                {
+                    j=1;
+                    break;
+                }
+            }
+        }
+        if(j==1)
+        {
+            cout<<2<<endl;
+            continue;
+        }
+        for(i=0;i<n-2;i++)
+        {
+            if(s[i]=='a')
+            {
+                if(s[i]==s[i+2])
+                {
+                    j=1;
+                    break;
+                }
+            }
+        }
+        if(j==1)
+        {
+            cout<<3<<endl;
+            continue;
+        }
+        for(i=0;i<n-3;i++)
+        {
+            if(s[i]=='a')
+            {
+               if(s[i+1]!=s[i+2]&&s[i+3]=='a')
+               {
+                   j=1;
+                   break;
+               }
+            }
+        }
+        if(j==1)
+        {
+            cout<<4<<endl;
+            continue;
+        }
+        for(i=0;i<n-6;i++)
+        {
+            if(s[i]=='a')
+            {
+               if(s[i+1]==s[i+2]&&s[i+3]=='a'&&s[i+4]==s[i+5]&&s[i+6]=='a'&&s[i+1]!=s[i+4])
+               {
+                   j=1;
+                   break;
+               }
+            }
+        }
+        if(j==1)
+        {
+            cout<<7<<endl;
+            continue;
+        }
+        cout<<-1<<endl;
+    }
+}

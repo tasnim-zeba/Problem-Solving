@@ -1,0 +1,84 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    int t,n,i,j,x1,x2,c;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int a[n+1];
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+        }
+        vector<int>v1,v2;
+        c=0;
+        for(i=0,j=n-1;i<j;i++,j--)
+        {
+            if(a[i]!=a[j])
+            {
+                c++;
+                x1=a[i];
+                x2=a[j];
+                break;
+            }
+        }
+        if(c==0)
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            for(i=0;i<n;i++)
+            {
+                if(a[i]==x1);
+                else
+                {
+                    v1.push_back(a[i]);
+                }
+            }
+            c=0;
+        for(i=0,j=v1.size()-1;i<j;i++,j--)
+        {
+            if(v1[i]!=v1[j])
+            {
+                c++;
+            }
+        }
+        if(c==0)
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            for(i=0;i<n;i++)
+            {
+                if(a[i]==x2);
+                else
+                {
+                    v2.push_back(a[i]);
+                }
+            }
+            c=0;
+        for(i=0,j=v2.size()-1;i<j;i++,j--)
+        {
+            if(v2[i]!=v2[j])
+            {
+                c++;
+            }
+        }
+        if(c==0)
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+        }
+        }
+    }
+    return 0;
+}

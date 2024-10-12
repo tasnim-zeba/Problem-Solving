@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,i,j,f,l,r;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int a[n+1];
+        for(i=1;i<=n;i++)
+        {
+            cin>>a[i];
+        }
+        f=1;
+        for(i=1;i<=n;i++)
+        {
+            if(a[i]!=i)f=0;
+        }
+        if(f)
+        {
+            cout<<0<<endl;
+            continue;
+        }
+        f=1;
+        i=1;
+        while(a[i]==i)
+        {
+            i++;
+        }
+        l=i;
+        i=n;
+        while(a[i]==i)
+        {
+            i--;
+        }
+        r=i;
+        f=1;
+        for(i=l;i<=r;i++)
+        {
+            if(a[i]==i)
+            {
+                f=0;
+            }
+        }
+        if(f==1)
+        {
+            cout<<1<<endl;
+        }
+        else
+        {
+            cout<<2<<endl;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll t,n,i,j,a,b;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        a=b=0;
+        for(i=1; n>0 ; i++)
+        {
+            if(i%2)
+            {
+                if(n%2)
+                {
+                    a++;
+                    n--;
+                    if(n==0)break;
+                }
+                else
+                {
+                    if((n/2)%2==0&&n/2!=2)
+                    {
+                        a=a+1;
+                        n--;
+                        if(n==0)break;
+                    }
+                    else
+                    {
+                        a=a+(n/2);
+                        n=n/2;
+                    }
+                }
+            }
+            else
+            {
+                if(n%2)
+                {
+                    b++;
+                    n--;
+                    if(n==0)break;
+                }
+                else
+                {
+                   if((n/2)%2==0&&n/2!=2)
+                    {
+                        b=b+1;
+                        n--;
+                        if(n==0)break;
+                    }
+                    else
+                    {
+                        b=b+(n/2);
+                        n=n/2;
+                    }
+                }
+            }
+        }
+        cout<<a<<endl;
+    }
+}

@@ -1,0 +1,112 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll n,i,j,k,t,x;
+    cin>>t;
+    while(t--)
+    {
+    cin>>n>>k;
+    string s;
+    cin>>s;
+    ll ans[n+1];
+    for(i=0;i<n;i++)
+    {
+        ans[i]=0;
+    }
+    if(k%2==0)
+    {
+        for(i=0;i<n-1&&k;i++)
+        {
+            if(s[i]=='0')
+            {
+                s[i]='1';
+                ans[i]++;
+                k--;
+                if(k==0)
+                {
+                    break;
+                }
+            }
+        }
+        if(k%2==1)
+        {
+            if(s[n-1]=='1')
+            {
+                s[n-1]='0';
+            }
+            else
+            {
+                s[n-1]='1';
+            }
+            ans[n-1]++;
+            k--;
+        }
+        ans[0]+=k;
+    }
+    else
+    {
+        x=k-1;
+        for(i=0;i<n-1&&x;i++)
+        {
+            if(s[i]=='1')
+            {
+                s[i]='0';
+                ans[i]++;
+                x--;
+                if(x==0)
+                {
+                    break;
+                }
+            }
+        }
+        if(x%2==1)
+        {
+            if(s[n-1]=='1')
+            {
+                s[n-1]='0';
+            }
+            else
+            {
+                s[n-1]='1';
+            }
+            ans[n-1]++;
+            x--;
+        }
+        ans[0]+=x;
+        ll in=n-1;
+        for(i=0;i<n;i++)
+        {
+            if(s[i]=='1')
+            {
+                in=i;
+                break;
+            }
+        }
+        ans[in]++;
+        for(i=0;i<n;i++)
+        {
+            if(i!=in)
+            {
+                if(s[i]=='0')
+                {
+                    s[i]='1';
+                }
+                else
+                {
+                    s[i]='0';
+                }
+            }
+        }
+    }
+    cout<<s<<endl;
+    for(i=0;i<n;i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
+    }
+    return 0;
+}
+

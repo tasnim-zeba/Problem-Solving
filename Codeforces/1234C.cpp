@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int q,n,i,row;
+    cin>>q;
+    while(q--)
+    {
+        cin>>n;
+        string s1,s2;
+        cin>>s1>>s2;
+        row=0;
+        for(i=0;i<n;i++)
+        {
+            if(!row)
+            {
+                if(s1[i]>='3')
+                {
+                    if(s2[i]<'3')
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        row^=1;
+                    }
+                }
+            }
+            else
+            {
+                if(s2[i]>='3')
+                {
+                    if(s1[i]<'3')
+                    {
+                         break;
+                    }
+                    else
+                    {
+                        row^=1;
+                    }
+                }
+            }
+        }
+        if(row&&i==n)
+        {
+            cout<<"YES"<<endl;
+        }
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+}

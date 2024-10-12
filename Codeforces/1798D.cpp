@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll t,n,i,j,s,k,mn,mx;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        ll a[n+1];
+        s=0;
+        vector<ll>pos,neg;
+        mx=INT_MIN;
+        mn=INT_MAX;
+        for(i=1;i<=n;i++)
+        {
+            cin>>a[i];
+            s=s+a[i];
+            if(a[i]>=0)
+            {
+                pos.push_back(a[i]);
+            }
+            else
+            {
+                neg.push_back(a[i]);
+            }
+            mx=max(mx,a[i]);
+            mn=min(mn,a[i]);
+        }
+         k=mx-mn;
+        if(k==0)
+        {
+            cout<<"No"<<endl;
+            continue;
+        }
+        sort(pos.begin(),pos.end());
+        sort(neg.begin(),neg.end());
+        reverse(neg.begin(),neg.end());
+        vector<ll>ans;
+        s=0;
+        j=0;
+        for(i=0;i<pos.size();)
+        {
+            if((s+pos[i])>=k)
+            {
+                ans.push_back(neg[j]);
+                s=s+neg[j];
+                j++;
+            }
+            else
+            {
+                ans.push_back(pos[i]);
+                s=s+pos[i];
+                i++;
+            }
+        }
+        for(;j<neg.size();j++)
+        {
+            ans.push_back(neg[j]);
+        }
+        cout<<"Yes"<<endl;
+        for(i=0;i<ans.size();i++)
+        {
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+    }
+}
